@@ -1,13 +1,33 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    name: DataTypes.STRING,
-    pass: DataTypes.STRING,
-    mail: DataTypes.STRING,
-    age: DataTypes.INTEGER
+    name: {
+      type:DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+    pass: {
+      type:DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+    mail: {
+      type:DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+    age: {
+      type:DataTypes.integer,
+      validate: {
+        notEmpty: true
+      }
+    },
   }, {});
   User.associate = function(models) {
-    // associate....
+    User.hasMany(models.Board);
   };
   return User;
 };
