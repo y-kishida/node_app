@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     age: {
-      type:DataTypes.integer,
+      type:DataTypes.INTEGER,
       validate: {
         notEmpty: true
       }
